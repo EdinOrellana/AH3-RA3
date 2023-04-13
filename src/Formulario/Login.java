@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Formulario;
+
 import static Formulario.Inicio.Escritorio;
 import Admin.Usuarios;
 import Conexion.conexion;
@@ -27,7 +28,7 @@ public class Login extends javax.swing.JInternalFrame {
      */
     public Login() {
         initComponents();
-       
+
     }
 
     /**
@@ -123,26 +124,34 @@ public class Login extends javax.swing.JInternalFrame {
     conexion cc = new conexion();
     Connection cn = cc.Conectar();
     int contador = 0;
-   
+
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         try {
-            String consulta = "Select CONCAT(nombre,' ',apellido) as usuario from usuarios where (correo_electronico='" + jtflUsuario.getText().trim() + "' OR nombre='" + jtflUsuario.getText().trim() + "') and contrasenia='" + jtflContra.getText().trim() + "'";
+            String consulta = "Select CONCAT(nombre,' ',apellido) as usuario,rol_id from usuarios where (correo_electronico='" + jtflUsuario.getText().trim() + "' OR nombre='" + jtflUsuario.getText().trim() + "') and contrasenia='" + jtflContra.getText().trim() + "'";
             Statement pr = cn.createStatement();
             ResultSet rs = pr.executeQuery(consulta);
             if (rs.next()) {
-                Usuarios usuario=new Usuarios();
+                Usuarios usuario = new Usuarios();
                 Escritorio.add(usuario);
-              
+                if (rs.getInt("rol_id") == 1) {
+                    usuario.AgregarUsuario.setVisible(true);
+                    usuario.btnModificarUsuario.setVisible(true);
+                    usuario.btnEliminarUsuario.setVisible(true);
+                } else {
+                    usuario.AgregarUsuario.setVisible(false);
+                    usuario.btnModificarUsuario.setVisible(false);
+                    usuario.btnEliminarUsuario.setVisible(false);
+                }
                 usuario.setVisible(true);
                 try {
                     usuario.setMaximum(true);
                 } catch (PropertyVetoException ex) {
                     System.out.println(ex);
                 }
-                Inicio.activarlogin=false;
+                Inicio.activarlogin = false;
                 this.setVisible(false);
                 contador = 0;
-                Usuarios.lblUsuario.setText("Usuario: "+rs.getString("usuario"));
+                Usuarios.lblUsuario.setText("Usuario: " + rs.getString("usuario"));
             } else {
                 if (contador < 2) {
                     contador += 1;
@@ -158,8 +167,8 @@ public class Login extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-jtflContra.setText("");
-jtflUsuario.setText("");
+        jtflContra.setText("");
+        jtflUsuario.setText("");
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
 

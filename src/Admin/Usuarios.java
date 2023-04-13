@@ -65,11 +65,11 @@ void Editar() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnModificarUsuario = new javax.swing.JButton();
+        btnEliminarUsuario = new javax.swing.JButton();
         lblUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        AgregarUsuario = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -85,29 +85,29 @@ void Editar() {
         ));
         jScrollPane1.setViewportView(Tabla);
 
-        jButton1.setText("Modificar Usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarUsuario.setText("Modificar Usuario");
+        btnModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnModificarUsuarioActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Eliminar  Usuario");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarUsuario.setText("Eliminar  Usuario");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnEliminarUsuarioActionPerformed(evt);
             }
         });
 
         lblUsuario.setText("Usuario:Nombre Apellido");
 
-        jMenu1.setText("Agregar usuario");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        AgregarUsuario.setText("Agregar usuario");
+        AgregarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                AgregarUsuarioMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(AgregarUsuario);
 
         jMenu2.setText("Salir");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,9 +125,9 @@ void Editar() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,29 +144,29 @@ void Editar() {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+    private void AgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarUsuarioMouseClicked
         Guardar_Editar_Borrar guardar = new Guardar_Editar_Borrar();
         Inicio.Escritorio.add(guardar);
         guardar.setVisible(true);
         bandera = 0;
         guardar.btnOk.setText("Guardar");
         guardar.lblNombre.setText("Agregar Usuario");
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_AgregarUsuarioMouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         Inicio.activarlogin = true;
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioActionPerformed
         Guardar_Editar_Borrar editar = new Guardar_Editar_Borrar();
         Inicio.Escritorio.add(editar);
         editar.setVisible(true);
@@ -176,9 +176,9 @@ void Editar() {
         editar.lblNombre.setText("Modificar Usuario");
         Guardar_Editar_Borrar.jradioActivo.setVisible(false);
         Guardar_Editar_Borrar.jradioInactivo.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnModificarUsuarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
         Guardar_Editar_Borrar borrar = new Guardar_Editar_Borrar();
         Inicio.Escritorio.add(borrar);
         borrar.setVisible(true);
@@ -195,14 +195,14 @@ void Editar() {
         Guardar_Editar_Borrar.jtflnombre.setEnabled(false);
         Guardar_Editar_Borrar.jradioActivo.setVisible(false);
         Guardar_Editar_Borrar.jradioInactivo.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JMenu AgregarUsuario;
     public static javax.swing.JTable Tabla;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JMenu jMenu1;
+    public javax.swing.JButton btnEliminarUsuario;
+    public javax.swing.JButton btnModificarUsuario;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
